@@ -1,0 +1,17 @@
+---
+- name: httpd Package Installation
+  yum: name={{ item }} state=installed
+  with_items:
+    - httpd
+
+- name: httpd configuration file with templates
+  template: src=templates/index.html.j2 dest=/var/www/html/index.html
+  notify:
+    - restart httpd
+
+- name: httpd service enable
+	service:
+		name: httpd
+		enabled: true
+		state: started
+		
