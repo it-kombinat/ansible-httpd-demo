@@ -10,8 +10,7 @@
     - restart httpd
 
 - name: httpd service enable
-	service:
-		name: httpd
-		enabled: true
-		state: started
-		
+  service:
+    name: httpd
+    enabled: yes
+    state: started
